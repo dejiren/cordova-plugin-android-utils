@@ -1,0 +1,38 @@
+{
+  "name": "cordova-plugin-android-utils",
+  "version": "1.0.0",
+  "description": "Cordova android Utils Plugins",
+  "main": " ",
+  "repository": "git@github.com:dejiren/cordova-plugin-android-utils.git",
+  "keywords": [
+    "cordova",
+    "cordova-android",
+    "plugin",
+    "environment"
+  ],
+  "homepage": "",
+  "types": "./types/index.d.ts",
+  "license": "MIT",
+  "cordova": {
+    "id": "cordova-plugin-android-utils",
+    "platforms": [
+      "android"
+    ]
+  },
+  "directories": {},
+  "scripts": {},
+  "author": "dejiren team",
+  "engines": {
+    "cordovaDependencies": {
+      ">=1.0.0": {
+        "cordova": ">=7.0.0",
+        "cordova-android": ">=6.3.0"
+      }
+    }
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4",
+    "jshint": "^2.6.0",
+    "sync-cordova-xml": "^0.4.0"
+  }
+}

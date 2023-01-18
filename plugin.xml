@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-android-utils" version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-android-utils</name>
+    <description>Cordova Android environment tools plugin</description>
+    <author>Dejiren Team</author>
+    <license>MIT</license>
+    <keywords>cordova,ecosystem:cordova,cordova-android,plugin,environment, mediascanner,
+        notification setting</keywords>
+    <repo>https://github.com/dejiren/cordova-plugin-android-utils</repo>
+    <issue>https://github.com/dejiren/cordova-plugin-android-utils/issues</issue>
+    <!-- expose our API under navigator.Env -->
+
+
+    <engines>
+        <engine name="cordova" version=">=7.0.0" />
+        <engine name="cordova-android" version=">=6.3.0" />
+    </engines>
+
+    <!-- android -->
+    <js-module name="Env" src="www/env.js">
+        <clobbers target="cordova.plugins.androidEnv" />
+    </js-module>
+    <js-module name="NotificationSettingManager" src="www/notificationSettingManager.js">
+        <clobbers target="cordova.plugins.androidNotificationManager" />
+    </js-module>
+    <js-module src="www/MediaScanner.js" name="MediaScanner">
+        <clobbers target="cordova.plugins.androidMediaScanner" />
+    </js-module>
+    <platform name="android">
+        <!-- env-->
+        <config-file target="config.xml" parent="/*">
+            <feature name="Env">
+                <param name="android-package" value="dejiren.cordova.environment.Env" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/Env.java" target-dir="src/dejiren/cordova/android/tools" />
+
+        <!-- NotificationManager-->
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="NotificationSettingManager">
+                <param name="android-package"
+                    value="dejiren.cordova.environment.NotificationSettingManager" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/NotificationSettingManager.java"
+            target-dir="src/dejiren/cordova/android/tools" />
+
+        <!-- MediaScanner-->
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MediaScanner">
+                <param name="android-package"
+                    value="dejiren.cordova.environment.MediaScanner" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/MediaScanner.java"
+            target-dir="src/dejiren/cordova/android/tools" />
+
+    </platform>
+
+</plugin>
